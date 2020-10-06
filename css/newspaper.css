@@ -1,0 +1,70 @@
+:root {
+    --text-color:  rgb(59, 59, 59);
+}
+
+@font-face {
+    font-family: ImpactLabelReversed;
+    src: url("../assets/fonts/impact_label/Impact\ Label\ Reversed.ttf");
+}
+
+@font-face {
+    font-family: BonVoyage;
+    src: url("../assets/fonts/made_bon_voyage/MADE\ Bon\ Voyage\ Regular\ PERSONAL\ USE.otf");
+}
+@font-face {
+    font-family: BonVoyageThin;
+    src: url("../assets/fonts/made_bon_voyage/MADE\ Bon\ Voyage\ Thin\ PERSONAL\ USE.otf");
+}
+
+body {
+    background-image: url("../assets/images/ep_naturalwhite.png");
+    background-size: auto;
+    background-repeat: repeat;
+}
+img {
+    filter: saturate(0%) contrast(160%);
+    border: 5px solid var(--text-color);
+}
+p {
+    font-family: BonVoyage;
+    font-weight: 500;
+    font-size: large;
+}
+.header {
+
+    color: var(--text-color);
+    margin-bottom: 0;
+    font-family: ImpactLabelReversed;
+}
+.navbar-menu {
+    border: 2px solid var(--text-color) ;
+    border-left: 0;
+    border-right: 0;
+    padding: 4px;
+    text-transform: uppercase;
+    font-family: ImpactLabelReversed;
+    font-size: xx-large;
+    max-height: 42px;
+}
+
+.navbar-menu__item {
+ position: relative;
+ color: var(--text-color);
+ min-height: 80px;
+ margin: auto;
+ margin-top: -10px;
+ padding: auto;
+}
+
+.navbar-menu__item:hover {
+    background: url(../assets/svgs/drawing.svg);
+    background-position-y: 0px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top left;
+}
+
+.main-content {
+    background: transparent;
+}
+

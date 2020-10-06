@@ -5,3 +5,49 @@ body {
 main {
     background: white;
 }
+
+.navbar-menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.navbar-menu > li > a {
+    padding: 8px 24px;
+    color: inherit;
+    text-decoration-line: none;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+    }
+    .flex-row-25 {
+        width: 25%;
+        max-width: 25%;
+    }
+    .flex-row-33 {
+        width: 33%;
+        max-width: 33.3%;
+    }
+    .flex-row-50 {
+        width: 50%;
+        max-width: 50%;
+    }
+    .flex-row-66{
+        width: 66%;
+        max-width: 66.6%;
+    }
+    .flex-row-75 {
+        width: 75%;
+        max-width: 75%;
+    }
+}
