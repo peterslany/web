@@ -5,13 +5,16 @@ body {
 main {
     background: white;
 }
-
+img {
+    width: 100%;
+}
 .navbar-menu {
     margin: 0;
     padding: 0;
     display: flex;
     list-style: none;
     justify-content: space-evenly;
+    flex-direction: column;
 }
 
 .navbar-menu > li > a {
@@ -25,8 +28,13 @@ main {
     justify-content: space-between;
     flex-direction: column;
 }
-
+@media only screen and (min-width: 620px) {
+    .navbar-menu {
+        flex-direction: row;
+    }
+}
 @media only screen and (min-width: 768px) {
+
     .main-content {
         flex-direction: row;
     }

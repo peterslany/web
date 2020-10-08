@@ -4,17 +4,17 @@
 
 @font-face {
     font-family: ImpactLabelReversed;
-    src: url("../assets/fonts/impact_label/impact_label_reversed.ttf");
+    src: url("/impact_label_reversed.ef990b55.ttf");
 }
 
 @font-face {
     font-family: BonVoyage;
-    src: url("../assets/fonts/made_bon_voyage/bon_voyage.otf");
+    src: url("/bon_voyage.d3033c03.otf");
 }
 
 
 body {
-    background-image: url("../assets/images/ep_naturalwhite.png");
+    background-image: url("/ep_naturalwhite.e12a4eb8.png");
     background-size: auto;
     background-repeat: repeat;
 }
@@ -106,3 +106,67 @@ p {
     width: 500px;
     height: 200px;
 }
+body {
+    background: #eee;
+}
+
+main {
+    background: white;
+}
+img {
+    width: 100%;
+}
+.navbar-menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.navbar-menu > li > a {
+    padding: 8px 24px;
+    color: inherit;
+    text-decoration-line: none;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+@media only screen and (min-width: 620px) {
+    .navbar-menu {
+        flex-direction: row;
+    }
+}
+@media only screen and (min-width: 768px) {
+
+    .main-content {
+        flex-direction: row;
+    }
+    .flex-row-25 {
+        width: 25%;
+        max-width: 25%;
+    }
+    .flex-row-33 {
+        width: 33%;
+        max-width: 33.3%;
+    }
+    .flex-row-50 {
+        width: 50%;
+        max-width: 50%;
+    }
+    .flex-row-66{
+        width: 66%;
+        max-width: 66.6%;
+    }
+    .flex-row-75 {
+        width: 75%;
+        max-width: 75%;
+    }
+}
+
+
+/*# sourceMappingURL=/src.e31bb0bc.css.map */
