@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "parcel ./src/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "parcel build ./src/index.html"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/peterslany/web/issues"
   },
-  "homepage": "https://github.com/peterslany/web#readme"
+  "homepage": "https://github.com/peterslany/web#readme",
+  "dependencies": {
+    "animejs": "^3.2.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10"
+  }
 }
