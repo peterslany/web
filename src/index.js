@@ -1,8 +1,9 @@
-import { animateNavItems } from "./animations";
+import { animateNavItems, animateNavButton } from "./animations";
 
-import "./css/newspaper.css";
 import "./css/styles.css";
+import "./css/newspaper.css";
 //wait for the content until it's rendered
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
     animateNavItems();
-})
+    animateNavButton();
+});

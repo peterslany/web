@@ -10,7 +10,21 @@
 
 <body class="mx-5">
     <p id="test_1" class="display-4 text-center py-3 header">Peter Slaný</p>
-    <nav>
+    <div id="toggleMenu">
+        <div class="toggleMenu__side">
+            <div class="toggleMenu__side__item toggleMenu__side__item--right"></div>
+            <div class="toggleMenu__side__item toggleMenu__side__item--left"></div>
+
+        </div>
+        <span class="toggleMenu__text">
+            MENU
+        </span>
+        <div class="toggleMenu__side">
+            <div class="toggleMenu__side__item toggleMenu__side__item--left"></div>
+            <div class="toggleMenu__side__item toggleMenu__side__item--right"></div>
+        </div>
+    </div>
+    <nav class="navbar-menu-wrapper">
         <ul class="navbar-menu">
             <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="">About</a>
                 <svg id="svg1" class="svg-container svg-container1" xmlns="http://www.w3.org/2000/svg">
