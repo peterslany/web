@@ -1863,7 +1863,7 @@ exports.default = _default;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.animateNavItems = void 0;
+exports.animateNavButton = exports.animateNavItems = void 0;
 
 var _anime = _interopRequireDefault(require("animejs/lib/anime.es"));
 
@@ -1890,6 +1890,7 @@ var animateNavItems = function animateNavItems() {
     var targetedPathSelector = ".navbar-menu__item:nth-of-type(".concat(index + 1, ") path");
     var pathLength = document.querySelector(targetedPathSelector).getTotalLength();
     item.addEventListener("mouseover", function () {
+      console.log("HOVER");
       (0, _anime.default)({
         targets: [targetedPathSelector],
         strokeDashoffset: 0,
@@ -1911,6 +1912,33 @@ var animateNavItems = function animateNavItems() {
 };
 
 exports.animateNavItems = animateNavItems;
+
+var animateNavButton = function animateNavButton() {
+  var button = document.querySelector("#toggleMenu");
+  button.addEventListener("click", function () {
+    console.log("BAM");
+
+    if (!button.dataset.menuopen) {
+      (0, _anime.default)({
+        targets: [".navbar-menu-wrapper"],
+        maxHeight: 240,
+        duration: 500,
+        easing: "easeOutQuad"
+      });
+      button.dataset.menuopen = true;
+    } else {
+      (0, _anime.default)({
+        targets: [".navbar-menu-wrapper"],
+        maxHeight: 0,
+        duration: 500,
+        easing: "easeOutSine"
+      });
+      button.dataset.menuopen = "";
+    }
+  });
+};
+
+exports.animateNavButton = animateNavButton;
 },{"animejs/lib/anime.es":"ndqK"}],"krre":[function(require,module,exports) {
 
 },{}],"zMaD":[function(require,module,exports) {
@@ -1925,8 +1953,9 @@ require("./css/styles.css");
 require("./css/newspaper.css");
 
 //wait for the content until it's rendered
-window.addEventListener('DOMContentLoaded', function () {
+window.addEventListener("DOMContentLoaded", function () {
   (0, _animations.animateNavItems)();
+  (0, _animations.animateNavButton)();
 });
 },{"./animations":"Wldl","./css/styles.css":"krre","./css/newspaper.css":"zMaD"}]},{},["Focm"], null)
-//# sourceMappingURL=src.adab3660.js.map
+//# sourceMappingURL=src.dcc4e817.js.map

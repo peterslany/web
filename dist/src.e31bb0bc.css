@@ -106,6 +106,7 @@ p {
     border-bottom: var(--thin-border);
     text-align: center;
     display: flex;
+    cursor: pointer;
 }
 .toggleMenu__side {
     width: 100%;
