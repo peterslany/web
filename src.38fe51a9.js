@@ -1943,7 +1943,7 @@ exports.animateNavButton = animateNavButton;
 
 },{}],"zMaD":[function(require,module,exports) {
 
-},{"./../assets/fonts/impact_label/impact_label_reversed.ttf":[["impact_label_reversed.5df4dbe8.ttf","zY36"],"zY36"],"./../assets/fonts/made_bon_voyage/bon_voyage.otf":[["bon_voyage.59f147d4.otf","chBW"],"chBW"],"./../assets/images/ep_naturalwhite.png":[["ep_naturalwhite.77b91b84.png","DDHB"],"DDHB"]}],"Focm":[function(require,module,exports) {
+},{"./../assets/fonts/impact_label/impact_label_reversed.ttf":[["impact_label_reversed.5df4dbe8.ttf","zY36"],"zY36"],"./../assets/fonts/fipty_serif/fipty_serif.ttf":[["fipty_serif.bcea7789.ttf","wDQ8"],"wDQ8"],"./../assets/fonts/heading/heading_bold.ttf":[["heading_bold.d2943477.ttf","GWx3"],"GWx3"],"./../assets/images/ep_naturalwhite.png":[["ep_naturalwhite.77b91b84.png","DDHB"],"DDHB"]}],"Focm":[function(require,module,exports) {
 "use strict";
 
 var _animations = require("./animations");
@@ -1958,4 +1958,4 @@ window.addEventListener("DOMContentLoaded", function () {
   (0, _animations.animateNavButton)();
 });
 },{"./animations":"Wldl","./css/styles.css":"krre","./css/newspaper.css":"zMaD"}]},{},["Focm"], null)
-//# sourceMappingURL=src.1fc84ef2.js.map
+//# sourceMappingURL=src.38fe51a9.js.map
