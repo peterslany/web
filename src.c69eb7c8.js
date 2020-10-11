@@ -1958,4 +1958,4 @@ window.addEventListener("DOMContentLoaded", function () {
   (0, _animations.animateNavButton)();
 });
 },{"./animations":"Wldl","./css/styles.css":"krre","./css/newspaper.css":"zMaD"}]},{},["Focm"], null)
-//# sourceMappingURL=src.38fe51a9.js.map
+//# sourceMappingURL=src.c69eb7c8.js.map

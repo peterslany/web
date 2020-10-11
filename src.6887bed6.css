@@ -93,6 +93,7 @@ p {
     font-family: FiptySerif;
     font-weight: 400; 
     font-size: x-large;
+    text-align: center;
 }
 .header {
     color: var(--text-color);
@@ -266,4 +267,4 @@ p {
 }
 
 
-/*# sourceMappingURL=src.a6e1a2f7.css.map */
+/*# sourceMappingURL=src.6887bed6.css.map */
