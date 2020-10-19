@@ -1872,13 +1872,19 @@ exports.navbarShapes = navbarShapes;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.flashInItem = exports.animateNavButton = exports.animateNavItems = void 0;
+exports.animateDecorations = exports.onScrollPositionAnimation = exports.animateOnLoad = exports.animateNavButton = exports.animateNavItems = void 0;
 
 var _anime = _interopRequireDefault(require("animejs/lib/anime.es"));
 
 var _navbarShapes = require("../assets/svg/navbarShapes");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -1959,13 +1965,123 @@ var animateNavButton = function animateNavButton() {
 
 exports.animateNavButton = animateNavButton;
 
-var flashInItem = function flashInItem(target) {
-  (0, _anime.default)({
-    targets: [target]
+var fadeInItem = function fadeInItem(target) {
+  var stagger = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  (0, _anime.default)(_objectSpread({
+    targets: [target],
+    opacity: [0, 1],
+    duration: 500,
+    easing: "easeInQuad"
+  }, stagger ? {
+    delay: _anime.default.stagger(500)
+  } : {}));
+};
+
+var moveInFromUpwards = function moveInFromUpwards(target) {
+  var stagger = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  (0, _anime.default)(_objectSpread(_objectSpread({
+    targets: [target],
+    translateY: [-60, 0],
+    opacity: [{
+      value: 0,
+      duration: 0
+    }, {
+      value: 0,
+      duration: 500
+    }, 1]
+  }, stagger ? {
+    delay: _anime.default.stagger(300)
+  } : {}), {}, {
+    easing: "easeOutQuad"
+  }));
+};
+
+var animateSectionText = function animateSectionText(target) {
+  var textInDuration = 600;
+
+  _anime.default.timeline().add({
+    targets: ["".concat(target, " .heading")],
+    clipPath: ["circle(0%)", "circle(100%)"],
+    duration: 500,
+    easing: "linear"
+  }).add({
+    targets: ["".concat(target, " .heading h1")],
+    translateY: [220, 0],
+    duration: textInDuration,
+    easing: "easeOutQuad"
+  }).add({
+    targets: ["".concat(target, " .paragraph > *")],
+    translateY: [-200, 0],
+    opacity: [0, 1],
+    duration: textInDuration,
+    easing: "easeInOutQuad"
+  }, "-=".concat(textInDuration / 2));
+};
+
+var animateOnLoad = function animateOnLoad() {
+  fadeInItem("#home-image");
+  moveInFromUpwards(".navbar-menu__item", true); //animateSectionText(".first-content");
+};
+
+exports.animateOnLoad = animateOnLoad;
+
+var animateOnElementInViewport = function animateOnElementInViewport(element, animation) {
+  var height = 0;
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset + window.innerHeight >= element.offsetTop && height < element.offsetTop) {
+      animation();
+    }
+
+    height = window.pageYOffset + window.innerHeight;
   });
 };
 
-exports.flashInItem = flashInItem;
+var onScrollPositionAnimation = function onScrollPositionAnimation() {
+  var animateSectionContent = function animateSectionContent(textBlock, image) {
+    animateSectionText(textBlock);
+    fadeInItem(image);
+  };
+
+  var sectionsSelectors = ["#about__hello", "#about__what", "#work__react-sample"];
+  sectionsSelectors.forEach(function (sectionSelector) {
+    animateOnElementInViewport(document.querySelector(sectionSelector), function () {
+      return animateSectionContent("".concat(sectionSelector, " .section-content__text-block"), "".concat(sectionSelector, " img"));
+    });
+  });
+};
+
+exports.onScrollPositionAnimation = onScrollPositionAnimation;
+
+var animateDecorations = function animateDecorations() {
+  (0, _anime.default)({
+    targets: [".decoration-arrow"],
+    rotateZ: [40, 45],
+    duration: 500,
+    background: "red",
+    loop: true,
+    direction: "alternate",
+    easing: "linear"
+  });
+  var iframeEl = document.querySelector("#work__react-portfolio");
+  var iframeAnimation = (0, _anime.default)({
+    targets: ["#work__react-portfolio"],
+    update: function update(anim) {
+      iframeEl.style.filter = "brightness(".concat(anim.progress / 7 + 100, "%) hue-rotate(").concat(anim.progress % 180, "deg)");
+    },
+    loop: true,
+    direction: "alternate",
+    duration: 500
+  });
+  iframeEl.addEventListener("mouseover", function () {
+    iframeAnimation.pause();
+    iframeAnimation.seek(0);
+  });
+  iframeEl.addEventListener("mouseleave", function () {
+    return iframeAnimation.play();
+  });
+};
+
+exports.animateDecorations = animateDecorations;
 },{"animejs/lib/anime.es":"ndqK","../assets/svg/navbarShapes":"UCID"}],"krre":[function(require,module,exports) {
 
 },{}],"sQIF":[function(require,module,exports) {
@@ -1993,6 +2109,9 @@ window.addEventListener("DOMContentLoaded", function () {
   });
   (0, _animations.animateNavItems)();
   (0, _animations.animateNavButton)();
+  (0, _animations.animateOnLoad)();
+  (0, _animations.onScrollPositionAnimation)();
+  (0, _animations.animateDecorations)();
 });
 },{"./newspaper/animations":"QuZH","./css/styles.css":"krre","./css/newspaper.scss":"sQIF","./css/modern.scss":"krre"}]},{},["Focm"], null)
-//# sourceMappingURL=src.4fac5b84.js.map
+//# sourceMappingURL=src.4eded403.js.map

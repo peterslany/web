@@ -17,7 +17,7 @@ gtag('config', 'UA-180839816-1');</script>
     <title>Peter Slaný</title>
 
     <link rel="stylesheet" type="text/css" href="bootstrap.min.6fb89059.css">
-<link rel="stylesheet" href="src.a0e98f4f.css"></head>
+<link rel="stylesheet" href="src.3877b92b.css"></head>
 
 <body class="mx-5">
     <span class="theme-menu-wrapper">
@@ -42,10 +42,10 @@ gtag('config', 'UA-180839816-1');</script>
         <ul class="navbar-menu">
             <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="#about">About</a>
             </li>
-            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="">Work</a>
+            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="#work">Work</a>
             </li>
             
-            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="">Contact</a>
+            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="#contact">Contact</a>
             </li>
         </ul>
     </nav>
@@ -53,45 +53,101 @@ gtag('config', 'UA-180839816-1');</script>
     <main class="main-content">
         <div class="first-content">
             <div class="flex-row-33">
-                <h1 class="heading welcome-heading">Do you need a web?</h1>
-                <p>I'm here to help you! Scroll down, please.</p>
+                <div class="heading">
+                    <h1>Do you need a web?</h1>
+                </div>
+                <div class="paragraph">
+                    <p>I'm here to help you! Scroll down, please.</p>
+                </div>
+
             </div>
-            <img class="flex-row-66 img-less-saturation-hover no-crop" src="undraw_young_and_happy_hfpe.bf043c1f.svg" alt="">
+            <img id="home-image" "="" class=" flex-row-66 img-less-saturation-hover no-crop" src="undraw_young_and_happy_hfpe.bf043c1f.svg" alt="Hello!">
         </div>
+
         <section id="about">
             <div class="section-heading">ABOUT ME</div>
-            <div class="section-content">
-                <img class="flex-row-33" src="me_compressed.ccc6932c.jpg" alt="Me while drinking tea">
+            <div id="about__hello" class="section-content">
+                <img class="decoration-arrow" src="1435215.ab2fee3a.svg" alt="arrow">
+                <img id="about__hello__image" class="flex-row-33" src="me_compressed.ccc6932c.jpg" alt="Me while drinking tea">
                 <div class="flex-row-66 centered-content">
                     <div class="section-content__text-block">
-                        <h1 class="heading flex-row">Hello, I'm Peter!</h1>
-                        <p>
-                            I am a <strong>creatively thinking</strong> human being from Slovakia. I love nature and an
-                            <strong>active, healthy lifestyle</strong> − coming home from hiking to cook some vegan
-                            delights.
-                            At the time, I <strong>study informatics</strong> in Brno, CZ.
-                        </p>
+                        <div class="heading">
+                            <h1 class="flex-row">Hello, I'm Peter!</h1>
+                        </div>
+                        <div class="paragraph">
+                            <p>
+                                I am a <strong>creatively thinking</strong> human being from Slovakia. I love nature and
+                                an
+                                <strong>active, healthy lifestyle</strong> − coming home from hiking to cook some vegan
+                                delights.
+                                At the time, I <strong>study informatics</strong> in Brno, CZ.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="section-content">
+            <div id="about__what" class="section-content">
                 <div class="flex-row-33 centered-content">
                     <div class="section-content__text-block">
-                        <h1 class="heading flex-row">What can I do for you?</h1>
-                        <p>
-
-                            I can create a <strong>web</strong> that completely <strong>suits your needs</strong>.
-                            Everything from <strong>business webpages</strong> to complex single-page applications in
-                            <strong>React</strong>.
-                        </p>
+                        <div class="heading">
+                            <h1 class="flex-row">What can I do for you?</h1>
+                        </div>
+                        <div class="paragraph">
+                            <p>
+                                I can create a <strong>web</strong> that completely <strong>suits your needs</strong>.
+                                Everything from <strong>business webpages</strong> to complex single-page applications
+                                in
+                                <strong>React</strong>.
+                            </p>
+                        </div>
                     </div>
                 </div>
-                <img class="flex-row-50 img-less-saturation-hover no-crop center-horizontally" src="undraw_web_developer_p3e5.ff4f9789.svg" alt="Me while drinking tea">
+                <img class="flex-row-50 img-less-saturation-hover no-crop center-horizontally" src="undraw_web_developer_p3e5.ff4f9789.svg" alt="Illustration: developing web">
 
             </div>
         </section>
+        <section id="work">
+            <div class="section-heading">MY WORK</div>
+            <div id="work__react-sample" class="section-content">
+                <div class="flex-row-66">
+                    <div class="show-only-on-mobiles">
+                        <img src="desktop_icon.273559b0.svg" alt="">
+                        <p>Visit on desktop to see live version of my work.</p>
+                    </div>
+                    <iframe id="work__react-portfolio" class="hide-on-mobile" src="https://react-sample-app.netlify.app/" title="React Sample"></iframe>
+                </div>
+                <div class="flex-row-33 centered-content">
+                    <div class="section-content__text-block">
+                        <div class="heading">
+                            <h1 class="flex-row">Parallax storytelling & news search</h1>
+                        </div>
+                        <img class="decoration-arrow hide-on-mobile decoration-arrow--react-sample" src="1435215.ab2fee3a.svg" alt="arrow">
+                        <div class="paragraph">
+                                <ul class="work__list">
+                                    <li>
+                                        Open sourced single-page app created in React.js
+                                    </li>
+                                    <li>
+                                        Feature to search through Guardian news
+                                    </li>
+                                    <li>
+                                        GitHub repository <a target="_blank" href="https://github.com/peterslany/react-sample-rest">here.</a>
+                                    </li>
+                                    <li>
+                                        See it live <a target="_blank" href="https://react-sample-app.netlify.app">here.</a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="section-heading">CONTACT ME</div>
+
+        </section>
     </main>
-    <script src="src.4fac5b84.js"></script>
+    <script src="src.4eded403.js"></script>
 </body>
 
 </html>
