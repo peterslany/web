@@ -1857,15 +1857,26 @@ anime.random = function (min, max) {
 
 var _default = anime;
 exports.default = _default;
-},{}],"Wldl":[function(require,module,exports) {
+},{}],"UCID":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.animateNavButton = exports.animateNavItems = void 0;
+exports.navbarShapes = void 0;
+var navbarShapes = ["<svg id=\"navbarShape1\" class=\"svg-container svg-container1\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path\n            class=\"navbar-menu__item--circle navbar-menu__item--circle-1\"\n            d=\"m243.59388,77.6153c-27.00685,25.51395 36.73794,52.00509 72.54288,57.38166c35.80495,5.37657 70.30956,1.10534 94.00724,-18.54582c23.69767,-19.65116 -30.83431,-48.01197 -59.95695,-47.47638c-29.12265,0.53559 -112.18488,9.78195 -112.00164,37.49377\"\n        />\n    </svg>", "<svg id=\"navbarShape2\" class=\"svg-container svg-container2\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path\n            class=\"navbar-menu__item--circle navbar-menu__item--circle-2\"\n            d=\"M 266.5426443657358 116.53145340125754 C 267.2419450323908 117.9300547345675 372.8363456972952 122.12585873449746 356.0531296975753 95.55243340160763 C 339.2699136978554 68.9790080687178 179.8293617005163 49.398589402377894 201.50768236682117 90.65732873502266 C 223.18600303312604 131.91606806766742 294.5146710319357 125.62236206777246 308.50068436503557 112.33564940132754 C 322.48669769813546 99.04893673488263 322.48669769813546 96.95103473491764 322.48669769813546 99.04893673488263\"\n        />\n    </svg>", "<svg id=\"navbarShape3\" class=\"svg-container svg-container3\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path\n            class=\"navbar-menu__item--circle navbar-menu__item--circle-3\"\n            d=\"m279.5,61.4375c-1,2 -20,56 -29,62c-9,6 193,8 194,5c1,-3 2,-66 -2,-65c-4,1 -185,12 -185.5,11.5625\"\n        />\n    </svg>"];
+exports.navbarShapes = navbarShapes;
+},{}],"QuZH":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.flashInItem = exports.animateNavButton = exports.animateNavItems = void 0;
 
 var _anime = _interopRequireDefault(require("animejs/lib/anime.es"));
+
+var _navbarShapes = require("../assets/svg/navbarShapes");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1881,16 +1892,24 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+var addHandwritingShapes = function addHandwritingShapes() {
+  var navbarItems = _toConsumableArray(document.getElementsByClassName("navbar-menu__item"));
+
+  navbarItems.forEach(function (item, index) {
+    item.innerHTML += _navbarShapes.navbarShapes[index];
+  });
+};
+
 var animateNavItems = function animateNavItems() {
+  addHandwritingShapes();
+
   var navbarItems = _toConsumableArray(document.getElementsByClassName("navbar-menu__item--link"));
 
   navbarItems.forEach(function (item, index) {
     // on hover
-    console.log("ANIM");
-    var targetedPathSelector = ".navbar-menu__item:nth-of-type(".concat(index + 1, ") path");
+    var targetedPathSelector = "#navbarShape".concat(index + 1, " path");
     var pathLength = document.querySelector(targetedPathSelector).getTotalLength();
     item.addEventListener("mouseover", function () {
-      console.log("HOVER");
       (0, _anime.default)({
         targets: [targetedPathSelector],
         strokeDashoffset: 0,
@@ -1939,23 +1958,41 @@ var animateNavButton = function animateNavButton() {
 };
 
 exports.animateNavButton = animateNavButton;
-},{"animejs/lib/anime.es":"ndqK"}],"krre":[function(require,module,exports) {
 
-},{}],"zMaD":[function(require,module,exports) {
+var flashInItem = function flashInItem(target) {
+  (0, _anime.default)({
+    targets: [target]
+  });
+};
 
-},{"./../assets/fonts/impact_label/impact_label_reversed.ttf":[["impact_label_reversed.5df4dbe8.ttf","zY36"],"zY36"],"./../assets/fonts/made_bon_voyage/bon_voyage.otf":[["bon_voyage.59f147d4.otf","chBW"],"chBW"],"./../assets/images/ep_naturalwhite.png":[["ep_naturalwhite.77b91b84.png","DDHB"],"DDHB"]}],"Focm":[function(require,module,exports) {
+exports.flashInItem = flashInItem;
+},{"animejs/lib/anime.es":"ndqK","../assets/svg/navbarShapes":"UCID"}],"krre":[function(require,module,exports) {
+
+},{}],"sQIF":[function(require,module,exports) {
+
+},{"./../assets/fonts/impact_label/impact_label_reversed.ttf":[["impact_label_reversed.5df4dbe8.ttf","zY36"],"zY36"],"./../assets/fonts/fipty_serif/fipty_serif.ttf":[["fipty_serif.bcea7789.ttf","wDQ8"],"wDQ8"],"./../assets/fonts/heading/heading_bold.ttf":[["heading_bold.d2943477.ttf","GWx3"],"GWx3"],"./../assets/images/ep_naturalwhite.png":[["ep_naturalwhite.77b91b84.png","DDHB"],"DDHB"]}],"Focm":[function(require,module,exports) {
 "use strict";
 
-var _animations = require("./animations");
+var _animations = require("./newspaper/animations");
 
 require("./css/styles.css");
 
-require("./css/newspaper.css");
+require("./css/newspaper.scss");
+
+require("./css/modern.scss");
 
 //wait for the content until it's rendered
 window.addEventListener("DOMContentLoaded", function () {
+  var root = document.querySelector("html");
+  document.getElementById("newspaper-theme").addEventListener("click", function () {
+    console.log("NEWS");
+    root.className = "newspaper";
+  });
+  document.getElementById("modern-theme").addEventListener("click", function () {
+    root.className = "modern";
+  });
   (0, _animations.animateNavItems)();
   (0, _animations.animateNavButton)();
 });
-},{"./animations":"Wldl","./css/styles.css":"krre","./css/newspaper.css":"zMaD"}]},{},["Focm"], null)
-//# sourceMappingURL=src.dcc4e817.js.map
+},{"./newspaper/animations":"QuZH","./css/styles.css":"krre","./css/newspaper.scss":"sQIF","./css/modern.scss":"krre"}]},{},["Focm"], null)
+//# sourceMappingURL=src.4fac5b84.js.map

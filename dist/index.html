@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="newspaper">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-180839816-1"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+
+function gtag() {
+  dataLayer.push(arguments);
+}
+
+gtag('js', new Date());
+gtag('config', 'UA-180839816-1');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peter Slany</title>
+    <title>Peter Slaný</title>
+
     <link rel="stylesheet" type="text/css" href="/bootstrap.min.108cc16f.css">
 <script src="/bootstrap.min.108cc16f.js"></script><link rel="stylesheet" href="/src.e31bb0bc.css"></head>
 
 <body class="mx-5">
-    <p id="test_1" class="display-4 text-center py-3 header">Peter Slaný</p>
+    <span class="theme-menu-wrapper">
+        <span id="newspaper-theme">.</span><span id="modern-theme">.</span>
+    </span>
+    <p class="display-4 text-center py-3 header">Peter Slaný</p>
     <div id="toggleMenu">
         <div class="toggleMenu__side">
             <div class="toggleMenu__side__item toggleMenu__side__item--right"></div>
@@ -17,34 +31,121 @@
 
         </div>
         <span class="toggleMenu__text">
-            MENU
+            SHOW MENU
         </span>
         <div class="toggleMenu__side">
             <div class="toggleMenu__side__item toggleMenu__side__item--left"></div>
             <div class="toggleMenu__side__item toggleMenu__side__item--right"></div>
         </div>
     </div>
-    <nav class="navbar-menu-wrapper">
+    <nav id="test_1" class="navbar-menu-wrapper">
         <ul class="navbar-menu">
-            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="">About</a>
-                <svg id="svg1" class="svg-container svg-container1" xmlns="http://www.w3.org/2000/svg">
-                    <path class="navbar-menu__item--circle navbar-menu__item--circle-1" d="m243.59388,77.6153c-27.00685,25.51395 36.73794,52.00509 72.54288,57.38166c35.80495,5.37657 70.30956,1.10534 94.00724,-18.54582c23.69767,-19.65116 -30.83431,-48.01197 -59.95695,-47.47638c-29.12265,0.53559 -112.18488,9.78195 -112.00164,37.49377"></path>
-
-                </svg></li>
-            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="">Work</a>
-                <svg id="svg2" class="svg-container svg-container2" xmlns="http://www.w3.org/2000/svg">
-                    <path class="navbar-menu__item--circle navbar-menu__item--circle-2" opacity="0.5" stroke-width="1.5" stroke="#000" fill="#fff" d="M 266.5426443657358 116.53145340125754 C 267.2419450323908 117.9300547345675 372.8363456972952 122.12585873449746 356.0531296975753 95.55243340160763 C 339.2699136978554 68.9790080687178 179.8293617005163 49.398589402377894 201.50768236682117 90.65732873502266 C 223.18600303312604 131.91606806766742 294.5146710319357 125.62236206777246 308.50068436503557 112.33564940132754 C 322.48669769813546 99.04893673488263 322.48669769813546 96.95103473491764 322.48669769813546 99.04893673488263"></path>
-                </svg></li>
+            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="#about">About</a>
+            </li>
+            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="#work">Work</a>
+            </li>
             
-            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="">Contact</a>
-                <svg id="svg3" class="svg-container svg-container3" xmlns="http://www.w3.org/2000/svg">
-                    <path class="navbar-menu__item--circle navbar-menu__item--circle-3" d="m279.5,61.4375c-1,2 -20,56 -29,62c-9,6 193,8 194,5c1,-3 2,-66 -2,-65c-4,1 -185,12 -185.5,11.5625"></path>
-                </svg></li>
+            <li class="navbar-menu__item"><a class="navbar-menu__item--link" href="#contact">Contact</a>
+            </li>
         </ul>
     </nav>
-    <main class="main-content my-3">
-        <p class="flex-row-33">Welcome to my webpage.</p>
-        <img class="flex-row-66" src="/undraw_young_and_happy_hfpe.a5151f38.svg" alt="">
+
+    <main class="main-content">
+        <div class="first-content">
+            <div class="flex-row-33">
+                <div class="heading">
+                    <h1>Do you need a web?</h1>
+                </div>
+                <div class="paragraph">
+                    <p>I'm here to help you! Scroll down, please.</p>
+                </div>
+
+            </div>
+            <img id="home-image" "="" class=" flex-row-66 img-less-saturation-hover no-crop" src="/undraw_young_and_happy_hfpe.47a0ceda.svg" alt="Hello!">
+        </div>
+
+        <section id="about">
+            <div class="section-heading">ABOUT ME</div>
+            <div id="about__hello" class="section-content">
+                <img class="decoration-arrow" src="/1435215.b58d9390.svg" alt="arrow">
+                <img id="about__hello__image" class="flex-row-33" src="/me_compressed.2a4f7781.jpg" alt="Me while drinking tea">
+                <div class="flex-row-66 centered-content">
+                    <div class="section-content__text-block">
+                        <div class="heading">
+                            <h1 class="flex-row">Hello, I'm Peter!</h1>
+                        </div>
+                        <div class="paragraph">
+                            <p>
+                                I am a <strong>creatively thinking</strong> human being from Slovakia. I love nature and
+                                an
+                                <strong>active, healthy lifestyle</strong> − coming home from hiking to cook some vegan
+                                delights.
+                                At the time, I <strong>study informatics</strong> in Brno, CZ.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="about__what" class="section-content">
+                <div class="flex-row-33 centered-content">
+                    <div class="section-content__text-block">
+                        <div class="heading">
+                            <h1 class="flex-row">What can I do for you?</h1>
+                        </div>
+                        <div class="paragraph">
+                            <p>
+                                I can create a <strong>web</strong> that completely <strong>suits your needs</strong>.
+                                Everything from <strong>business webpages</strong> to complex single-page applications
+                                in
+                                <strong>React</strong>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <img class="flex-row-50 img-less-saturation-hover no-crop center-horizontally" src="/undraw_web_developer_p3e5.9f7a052b.svg" alt="Illustration: developing web">
+
+            </div>
+        </section>
+        <section id="work">
+            <div class="section-heading">MY WORK</div>
+            <div id="work__react-sample" class="section-content">
+                <div class="flex-row-66">
+                    <div class="show-only-on-mobiles">
+                        <img src="/desktop_icon.69a82e6f.svg" alt="">
+                        <p>Visit on desktop to see live version of my work.</p>
+                    </div>
+                    <iframe id="work__react-portfolio" class="hide-on-mobile" src="https://react-sample-app.netlify.app/" title="React Sample"></iframe>
+                </div>
+                <div class="flex-row-33 centered-content">
+                    <div class="section-content__text-block">
+                        <div class="heading">
+                            <h1 class="flex-row">Parallax storytelling & news search</h1>
+                        </div>
+                        <img class="decoration-arrow hide-on-mobile decoration-arrow--react-sample" src="/1435215.b58d9390.svg" alt="arrow">
+                        <div class="paragraph">
+                                <ul class="work__list">
+                                    <li>
+                                        Open sourced single-page app created in React.js
+                                    </li>
+                                    <li>
+                                        Feature to search through Guardian news
+                                    </li>
+                                    <li>
+                                        GitHub repository <a target="_blank" href="https://github.com/peterslany/react-sample-rest">here.</a>
+                                    </li>
+                                    <li>
+                                        See it live <a target="_blank" href="https://react-sample-app.netlify.app">here.</a>
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="section-heading">CONTACT ME</div>
+
+        </section>
     </main>
     <script src="/src.e31bb0bc.js"></script>
 </body>

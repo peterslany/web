@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 body {
     background: #eee;
 }
@@ -7,6 +10,13 @@ main {
 }
 img {
     width: 100%;
+}
+.theme-menu-wrapper {
+    position: absolute;
+    z-index: 3;
+}
+.theme-menu-wrapper > span {
+    cursor: pointer;
 }
 .navbar-menu {
     margin: 0;
@@ -22,19 +32,16 @@ img {
     color: inherit;
     text-decoration-line: none;
 }
+.center-horizontally {
+    margin-left: auto;
+    margin-right: auto;
+}
 
-.main-content {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
+.hide-on-mobile {
+    display: none;
 }
 @media only screen and (min-width: 620px) {
     .navbar-menu {
-        flex-direction: row;
-    }
-}
-@media only screen and (min-width: 768px) {
-    .main-content {
         flex-direction: row;
     }
     .flex-row-25 {
@@ -56,5 +63,16 @@ img {
     .flex-row-75 {
         width: 75%;
         max-width: 75%;
+    }
+    #work__react-portfolio {
+        height: 80vh;
+        max-height: 90vh;
+        width: 100%;
+    }
+    .hide-on-mobile{
+        display: initial;
+    }
+    .show-only-on-mobiles {
+        display: none;
     }
 }

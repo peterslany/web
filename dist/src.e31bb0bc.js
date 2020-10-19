@@ -1857,17 +1857,34 @@ anime.random = function (min, max) {
 
 var _default = anime;
 exports.default = _default;
-},{}],"animations.js":[function(require,module,exports) {
+},{}],"assets/svg/navbarShapes.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.animateNavButton = exports.animateNavItems = void 0;
+exports.navbarShapes = void 0;
+var navbarShapes = ["<svg id=\"navbarShape1\" class=\"svg-container svg-container1\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path\n            class=\"navbar-menu__item--circle navbar-menu__item--circle-1\"\n            d=\"m243.59388,77.6153c-27.00685,25.51395 36.73794,52.00509 72.54288,57.38166c35.80495,5.37657 70.30956,1.10534 94.00724,-18.54582c23.69767,-19.65116 -30.83431,-48.01197 -59.95695,-47.47638c-29.12265,0.53559 -112.18488,9.78195 -112.00164,37.49377\"\n        />\n    </svg>", "<svg id=\"navbarShape2\" class=\"svg-container svg-container2\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path\n            class=\"navbar-menu__item--circle navbar-menu__item--circle-2\"\n            d=\"M 266.5426443657358 116.53145340125754 C 267.2419450323908 117.9300547345675 372.8363456972952 122.12585873449746 356.0531296975753 95.55243340160763 C 339.2699136978554 68.9790080687178 179.8293617005163 49.398589402377894 201.50768236682117 90.65732873502266 C 223.18600303312604 131.91606806766742 294.5146710319357 125.62236206777246 308.50068436503557 112.33564940132754 C 322.48669769813546 99.04893673488263 322.48669769813546 96.95103473491764 322.48669769813546 99.04893673488263\"\n        />\n    </svg>", "<svg id=\"navbarShape3\" class=\"svg-container svg-container3\" xmlns=\"http://www.w3.org/2000/svg\">\n        <path\n            class=\"navbar-menu__item--circle navbar-menu__item--circle-3\"\n            d=\"m279.5,61.4375c-1,2 -20,56 -29,62c-9,6 193,8 194,5c1,-3 2,-66 -2,-65c-4,1 -185,12 -185.5,11.5625\"\n        />\n    </svg>"];
+exports.navbarShapes = navbarShapes;
+},{}],"newspaper/animations.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.animateDecorations = exports.onScrollPositionAnimation = exports.animateOnLoad = exports.animateNavButton = exports.animateNavItems = void 0;
 
 var _anime = _interopRequireDefault(require("animejs/lib/anime.es"));
 
+var _navbarShapes = require("../assets/svg/navbarShapes");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
@@ -1881,16 +1898,24 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
+var addHandwritingShapes = function addHandwritingShapes() {
+  var navbarItems = _toConsumableArray(document.getElementsByClassName("navbar-menu__item"));
+
+  navbarItems.forEach(function (item, index) {
+    item.innerHTML += _navbarShapes.navbarShapes[index];
+  });
+};
+
 var animateNavItems = function animateNavItems() {
+  addHandwritingShapes();
+
   var navbarItems = _toConsumableArray(document.getElementsByClassName("navbar-menu__item--link"));
 
   navbarItems.forEach(function (item, index) {
     // on hover
-    console.log("ANIM");
-    var targetedPathSelector = ".navbar-menu__item:nth-of-type(".concat(index + 1, ") path");
+    var targetedPathSelector = "#navbarShape".concat(index + 1, " path");
     var pathLength = document.querySelector(targetedPathSelector).getTotalLength();
     item.addEventListener("mouseover", function () {
-      console.log("HOVER");
       (0, _anime.default)({
         targets: [targetedPathSelector],
         strokeDashoffset: 0,
@@ -1939,7 +1964,125 @@ var animateNavButton = function animateNavButton() {
 };
 
 exports.animateNavButton = animateNavButton;
-},{"animejs/lib/anime.es":"../node_modules/animejs/lib/anime.es.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+
+var fadeInItem = function fadeInItem(target) {
+  var stagger = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  (0, _anime.default)(_objectSpread({
+    targets: [target],
+    opacity: [0, 1],
+    duration: 500,
+    easing: "easeInQuad"
+  }, stagger ? {
+    delay: _anime.default.stagger(500)
+  } : {}));
+};
+
+var moveInFromUpwards = function moveInFromUpwards(target) {
+  var stagger = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  (0, _anime.default)(_objectSpread(_objectSpread({
+    targets: [target],
+    translateY: [-60, 0],
+    opacity: [{
+      value: 0,
+      duration: 0
+    }, {
+      value: 0,
+      duration: 500
+    }, 1]
+  }, stagger ? {
+    delay: _anime.default.stagger(300)
+  } : {}), {}, {
+    easing: "easeOutQuad"
+  }));
+};
+
+var animateSectionText = function animateSectionText(target) {
+  var textInDuration = 600;
+
+  _anime.default.timeline().add({
+    targets: ["".concat(target, " .heading")],
+    clipPath: ["circle(0%)", "circle(100%)"],
+    duration: 500,
+    easing: "linear"
+  }).add({
+    targets: ["".concat(target, " .heading h1")],
+    translateY: [220, 0],
+    duration: textInDuration,
+    easing: "easeOutQuad"
+  }).add({
+    targets: ["".concat(target, " .paragraph > *")],
+    translateY: [-200, 0],
+    opacity: [0, 1],
+    duration: textInDuration,
+    easing: "easeInOutQuad"
+  }, "-=".concat(textInDuration / 2));
+};
+
+var animateOnLoad = function animateOnLoad() {
+  fadeInItem("#home-image");
+  moveInFromUpwards(".navbar-menu__item", true); //animateSectionText(".first-content");
+};
+
+exports.animateOnLoad = animateOnLoad;
+
+var animateOnElementInViewport = function animateOnElementInViewport(element, animation) {
+  var height = 0;
+  window.addEventListener("scroll", function () {
+    if (window.pageYOffset + window.innerHeight >= element.offsetTop && height < element.offsetTop) {
+      animation();
+    }
+
+    height = window.pageYOffset + window.innerHeight;
+  });
+};
+
+var onScrollPositionAnimation = function onScrollPositionAnimation() {
+  var animateSectionContent = function animateSectionContent(textBlock, image) {
+    animateSectionText(textBlock);
+    fadeInItem(image);
+  };
+
+  var sectionsSelectors = ["#about__hello", "#about__what", "#work__react-sample"];
+  sectionsSelectors.forEach(function (sectionSelector) {
+    animateOnElementInViewport(document.querySelector(sectionSelector), function () {
+      return animateSectionContent("".concat(sectionSelector, " .section-content__text-block"), "".concat(sectionSelector, " img"));
+    });
+  });
+};
+
+exports.onScrollPositionAnimation = onScrollPositionAnimation;
+
+var animateDecorations = function animateDecorations() {
+  (0, _anime.default)({
+    targets: [".decoration-arrow"],
+    rotateZ: [40, 45],
+    duration: 500,
+    background: "red",
+    loop: true,
+    direction: "alternate",
+    easing: "linear"
+  });
+  var iframeEl = document.querySelector("#work__react-portfolio");
+  var iframeAnimation = (0, _anime.default)({
+    targets: ["#work__react-portfolio"],
+    update: function update(anim) {
+      iframeEl.style.filter = "brightness(".concat(anim.progress / 7 + 100, "%) hue-rotate(").concat(anim.progress % 180, "deg)");
+    },
+    loop: true,
+    direction: "alternate",
+    duration: 500
+  });
+  iframeEl.addEventListener("mouseover", function () {
+    iframeAnimation.pause();
+    iframeAnimation.seek(0);
+  });
+  iframeEl.addEventListener("mouseleave", function () {
+    return iframeAnimation.play();
+  });
+};
+
+exports.animateDecorations = animateDecorations;
+},{"animejs/lib/anime.es":"../node_modules/animejs/lib/anime.es.js","../assets/svg/navbarShapes":"assets/svg/navbarShapes.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -2011,26 +2154,44 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"css/newspaper.css":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"css/newspaper.scss":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"./../assets/fonts/impact_label/impact_label_reversed.ttf":[["impact_label_reversed.ef990b55.ttf","assets/fonts/impact_label/impact_label_reversed.ttf"],"assets/fonts/impact_label/impact_label_reversed.ttf"],"./../assets/fonts/made_bon_voyage/bon_voyage.otf":[["bon_voyage.d3033c03.otf","assets/fonts/made_bon_voyage/bon_voyage.otf"],"assets/fonts/made_bon_voyage/bon_voyage.otf"],"./../assets/images/ep_naturalwhite.png":[["ep_naturalwhite.e12a4eb8.png","assets/images/ep_naturalwhite.png"],"assets/images/ep_naturalwhite.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"./../assets/fonts/impact_label/impact_label_reversed.ttf":[["impact_label_reversed.ef990b55.ttf","assets/fonts/impact_label/impact_label_reversed.ttf"],"assets/fonts/impact_label/impact_label_reversed.ttf"],"./../assets/fonts/fipty_serif/fipty_serif.ttf":[["fipty_serif.78122825.ttf","assets/fonts/fipty_serif/fipty_serif.ttf"],"assets/fonts/fipty_serif/fipty_serif.ttf"],"./../assets/fonts/heading/heading_bold.ttf":[["heading_bold.4c4dc5a9.ttf","assets/fonts/heading/heading_bold.ttf"],"assets/fonts/heading/heading_bold.ttf"],"./../assets/images/ep_naturalwhite.png":[["ep_naturalwhite.e12a4eb8.png","assets/images/ep_naturalwhite.png"],"assets/images/ep_naturalwhite.png"],"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"css/modern.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _animations = require("./animations");
+var _animations = require("./newspaper/animations");
 
 require("./css/styles.css");
 
-require("./css/newspaper.css");
+require("./css/newspaper.scss");
+
+require("./css/modern.scss");
 
 //wait for the content until it's rendered
 window.addEventListener("DOMContentLoaded", function () {
+  var root = document.querySelector("html");
+  document.getElementById("newspaper-theme").addEventListener("click", function () {
+    console.log("NEWS");
+    root.className = "newspaper";
+  });
+  document.getElementById("modern-theme").addEventListener("click", function () {
+    root.className = "modern";
+  });
   (0, _animations.animateNavItems)();
   (0, _animations.animateNavButton)();
+  (0, _animations.animateOnLoad)();
+  (0, _animations.onScrollPositionAnimation)();
+  (0, _animations.animateDecorations)();
 });
-},{"./animations":"animations.js","./css/styles.css":"css/styles.css","./css/newspaper.css":"css/newspaper.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./newspaper/animations":"newspaper/animations.js","./css/styles.css":"css/styles.css","./css/newspaper.scss":"css/newspaper.scss","./css/modern.scss":"css/modern.scss"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -2058,7 +2219,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45007" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "46811" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
