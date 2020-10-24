@@ -17,12 +17,17 @@
     --thick-border: 5px solid var(--text-color);
 }
 .newspaper {
-    /* disable line drawing around nav items on mobile */
-
     body {
-        background-image: url("../assets/images/ep_naturalwhite.png");
-        background-size: auto;
-        background-repeat: repeat;
+        margin-right: 16px;
+        margin-left:16px;
+        @media (min-width: 620px) {
+            margin-right: 24px;
+            margin-left:24px;
+        }
+    }
+    .front-full-size {
+        position: relative;
+        height: 100vh;
     }
     img {
         filter: saturate(0%) contrast(130%);
@@ -79,33 +84,15 @@
         font-size: 2rem;
     }
     #toggleMenu {
-        font-family: ImpactLabelReversed;
+        font-family: Heading;
         font-size: xx-large;
+        font-weight: 100;
         border-top: var(--thinnest-border);
         border-bottom: var(--thinnest-border);
         text-align: center;
-        display: flex;
         cursor: pointer;
     }
-    .toggleMenu__side {
-        width: 100%;
-        & .toggleMenu__side__item:last-child {
-            border: 0;
-            margin-top: 1px;
-            border-top: 1px double black !important;
-        }
-    }
-    .toggleMenu__side__item {
-        height: calc(50% - 1px);
-        border-bottom: 1px double black;
-    }
 
-    .toggleMenu__side__item--left {
-        border-radius: 7px 0;
-    }
-    .toggleMenu__side__item--right {
-        border-radius: 0 7px;
-    }
     .toggleMenu__text {
         white-space: nowrap;
     }
@@ -116,10 +103,11 @@
     .navbar-menu {
         border-bottom: var(--thinnest-border);
         text-transform: uppercase;
-        font-family: ImpactLabelReversed;
+        font-family: Heading;
         font-size: 2.4rem;
         @media (min-width: 620px) {
             border-bottom: var(--thin-border);
+            font-family: ImpactLabelReversed;
         }
     }
     .navbar-menu__item {
@@ -136,10 +124,30 @@
     }
     .first-content {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        margin-bottom: 24px;
+        font-family: Heading;
+        font-size: 4rem;
+        text-align: center;
+        margin-top: auto;
+        height: 90%;
+        transition: height 200ms ease-in-out;
+        .first-text {
+            margin-top: -7rem;
+            span {
+                position: relative;
+                display: inline-block;
+                -webkit-background-clip: text;
+                -moz-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+        .swipe-down-arrow {
+            position: absolute;
+            width: 99px;
+            top: 80vh;
+        }
     }
     .svg-container {
         display: none;
@@ -246,14 +254,14 @@
         }
         .svg-container2 {
             top: -70px;
-            left: -210px;
-            width: 400px;
+            left: -50px;
+            width: 200px;
             height: 200px;
         }
         .svg-container3 {
             top: -70px;
-            left: -260px;
-            width: 500px;
+            left: -10px;
+            width: 230px;
             height: 200px;
         }
         .first-content {

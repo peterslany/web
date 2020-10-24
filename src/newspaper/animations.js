@@ -1,5 +1,7 @@
 import anime from "animejs/lib/anime.es";
 import { navbarShapes } from "../assets/svg/navbarShapes";
+import { debounce } from "lodash";
+import { startBG } from "../webgl/background";
 
 const addHandwritingShapes = () => {
     let navbarItems = [...document.getElementsByClassName("navbar-menu__item")];
@@ -40,15 +42,16 @@ export const animateNavItems = () => {
 export const animateNavButton = () => {
     const button = document.querySelector("#toggleMenu");
     button.addEventListener("click", () => {
-        console.log("BAM");
         if (!button.dataset.menuopen) {
+            moveInFromUpwards(".navbar-menu__item", true);
             anime({
                 targets: [".navbar-menu-wrapper"],
                 maxHeight: 240,
-                duration: 500,
+                duration: 1500,
                 easing: "easeOutQuad",
             });
             button.dataset.menuopen = true;
+            document.querySelector(".first-content").style.height = "50%"
         } else {
             anime({
                 targets: [".navbar-menu-wrapper"],
@@ -57,6 +60,7 @@ export const animateNavButton = () => {
                 easing: "easeOutSine",
             });
             button.dataset.menuopen = "";
+            document.querySelector(".first-content").style.height = "90%"
         }
     });
 };
@@ -111,9 +115,12 @@ const animateSectionText = (target) => {
 };
 
 export const animateOnLoad = () => {
+    startBG();
     fadeInItem("#home-image");
     moveInFromUpwards(".navbar-menu__item", true);
-    //animateSectionText(".first-content");
+    animateFirstText();
+    animateBgOnScroll();
+
 };
 
 const animateOnElementInViewport = (element, animation) => {
@@ -148,6 +155,15 @@ export const onScrollPositionAnimation = () => {
 
 export const animateDecorations = () => {
     anime({
+        targets:[".swipe-down-arrow"],
+        opacity: [{value: 0, duration: 0},{value: 1, duration: 1000}, {value:0, duration: 800},{value: 0, duration: 300}],
+        translateY: [0, 70],
+        duration: 2000,
+        loop: true,
+        round: 3,
+        easing: "easeInOutExpo"
+    })
+    anime({
         targets: [".decoration-arrow"],
         rotateZ: [40, 45],
         duration: 500,
@@ -156,18 +172,58 @@ export const animateDecorations = () => {
         direction: "alternate",
         easing: "linear"
     });
-    let iframeEl = document.querySelector("#work__react-portfolio")
+    let iframeEl = document.querySelector("#work__react-portfolio");
     const iframeAnimation = anime({
-        targets:["#work__react-portfolio"],
+        targets:[],
         update: (anim) => {
             iframeEl.style.filter = `brightness(${anim.progress / 7 + 100}%) hue-rotate(${anim.progress % 180}deg)`
         },
         loop: true,
         direction: "alternate", 
         duration: 500
-    })
-    iframeEl.addEventListener("mouseover", () => {iframeAnimation.pause();iframeAnimation.seek(0)})
-    iframeEl.addEventListener("mouseleave",() => iframeAnimation.play())
+    });
+    iframeEl.addEventListener("mouseover", () => {iframeAnimation.pause();iframeAnimation.seek(0)});
+    iframeEl.addEventListener("mouseleave",() => iframeAnimation.play());
 }
 
+const animateBgOnScroll = () => {
+    
+    document.addEventListener("scroll", () => {
+        const height = document.body.offsetHeight - window.innerHeight;
+        const position = window.pageYOffset;
+        bg.style.filter = `hue-rotate(${position / height * 360}deg)`
+        bg.style.opacity = 0.9 - (position / height * 0.6)
+    });
+}
 
+const animateFirstText = () => {
+    anime({
+        targets: [".first-text span"],
+        opacity: [0, 1],
+        duration: 500,
+        color: ["red", "blue"],
+        easing: "linear"
+    })
+    const firstTextSpans =  document.querySelectorAll(".first-text span");
+    const perspectives = [-1.2, 3, -1.5, 2, 3, 2.3]
+   firstTextSpans.forEach((text, index) => {
+
+        const color = Math.random()*-90+45;
+        text.style.backgroundImage = window.innerWidth > 620 
+            ? `linear-gradient(hsl(${color}, 65%, 55%), hsl(${color}, 15%, 15%))`
+            : `linear-gradient(hsl(${color}, 10%, 55%), hsl(${color}, 0%, 15%))`
+        text.style.zIndex = perspectives[index] > 0 ? perspectives[index] * 10 : 1;
+        text.style.fontSize = `${Math.abs(perspectives[index]) * (window.innerWidth > 620 ? 3 : 2)}rem`;
+
+        const firstContent = document.querySelector(".front-full-size");
+        firstContent.addEventListener("mousemove", (event) => {
+            const offsetX = window.innerWidth / 2 - event.clientX;
+            const offsetY = window.innerHeight / 2 - event.clientY;
+            const q = 0.051 * perspectives[index];
+            const qZ = Math.abs(offsetX * offsetY) * q * 0.001;
+            text.style.transform = `
+                                    translate(${(offsetX ) * q}px, ${(offsetY) * q}px) 
+                                    rotate(${qZ * (perspectives[index] * (offsetX * offsetY) < 1? 1: -1)}deg)`
+        })
+    });
+}
