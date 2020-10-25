@@ -1,8 +1,4 @@
 @font-face {
-    font-family: ImpactLabelReversed;
-    src: url("../assets/fonts/impact_label/impact_label_reversed.ttf");
-}
-@font-face {
     font-family: FiptySerif;
     src: url("../assets/fonts/fipty_serif/fipty_serif.ttf");
 }
@@ -78,10 +74,12 @@
         text-align: center;
     }
     .header {
-        color: var(--text-color);
+        color: transparent;
         margin-bottom: 0;
-        font-family: ImpactLabelReversed;
+        font-family: Heading;
         font-size: 2rem;
+        text-transform: uppercase;
+        -webkit-text-stroke: 1px var(--text-color);
     }
     #toggleMenu {
         font-family: Heading;
@@ -107,7 +105,6 @@
         font-size: 2.4rem;
         @media (min-width: 620px) {
             border-bottom: var(--thin-border);
-            font-family: ImpactLabelReversed;
         }
     }
     .navbar-menu__item {
@@ -130,13 +127,21 @@
         font-size: 4rem;
         text-align: center;
         margin-top: auto;
-        height: 90%;
+        height: 100%;
         transition: height 200ms ease-in-out;
+        width: calc(100% + 32px);
+        margin-left: -16px;
+        overflow: hidden;
+        @media (min-width: 620px) {
+            width: calc(100% + 48px);
+            margin-left: -24px;
+        }
         .first-text {
             margin-top: -7rem;
             span {
+                opacity: 0;
                 position: relative;
-                display: inline-block;
+                display: inline-table;
                 -webkit-background-clip: text;
                 -moz-background-clip: text;
                 background-clip: text;
@@ -147,6 +152,7 @@
             position: absolute;
             width: 99px;
             top: 80vh;
+            filter: invert(30%);
         }
     }
     .svg-container {
@@ -161,20 +167,24 @@
         h1 {
             font-family: Heading;
             font-size: 3.5rem;
+            font-weight: 300;
         }
     }
     .paragraph {
         overflow: hidden;
     }
     .section-heading {
-        font-family: ImpactLabelReversed;
+        font-family: Heading;
         font-size: 2.5rem;
         text-align: center;
         border: var(--thin-border);
         border-left: 0;
         border-right: 0;
+        -webkit-text-stroke: 1px var(--text-color);
+        color: transparent;
         @media (min-width: 620px) {
-            font-size: 3.5rem;
+            font-size: 4.2rem;
+            padding: 8px 0;
         }
     }
     .section-content {
@@ -253,14 +263,14 @@
             height: 200px;
         }
         .svg-container2 {
-            top: -70px;
-            left: -50px;
+            top: -66px;
+            left: -55px;
             width: 200px;
             height: 200px;
         }
         .svg-container3 {
             top: -70px;
-            left: -10px;
+            left: -30px;
             width: 230px;
             height: 200px;
         }

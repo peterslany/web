@@ -21,9 +21,9 @@
   "homepage": "https://github.com/peterslany/web#readme",
   "dependencies": {
     "animejs": "^3.2.0",
-    "curtainsjs": "^7.1.1",
-    "html2canvas": "^1.0.0-rc.7",
-    "lodash": "^4.17.20"
+    "lodash": "^4.17.20",
+    "postprocessing": "^6.17.4",
+    "three": "^0.121.1"
   },
   "devDependencies": {
     "cssnano": "^4.1.10",

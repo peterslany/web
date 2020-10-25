@@ -17,15 +17,13 @@ img {
 }
 
 #bg {
-    position: absolute;
+    position: fixed;
     left:0;
     top: 0;
     max-width: 100%;
     z-index: -1;
     overflow-x: hidden;
-}
-#bg-canvas {
-    filter: contrast(40%) brightness(180%) saturate(75%);   
+    opacity: 0.9;
 }
 .theme-menu-wrapper {
     position: absolute;
