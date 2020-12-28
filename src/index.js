@@ -2,6 +2,8 @@ import { animateNavItems, animateNavButton, flashInItem, animateOnLoad, onScroll
 import "./css/styles.css";
 import "./css/newspaper.scss";
 import "./css/modern.scss";
+import { contentLoaded } from "./loading";
+import { startBG } from "./webgl/background";
 
 
 
@@ -10,16 +12,24 @@ import "./css/modern.scss";
 window.addEventListener("DOMContentLoaded", () => {
     const root = document.querySelector("html");
     document.getElementById("newspaper-theme").addEventListener("click", () => {
-        console.log("NEWS")
-        root.className = "newspaper"
+        root.className = "newspaper";
 
     })
     document.getElementById("modern-theme").addEventListener("click", () => {
-        root.className = "modern"
+        root.className = "modern";
     })
+
+    document.getElementsByClassName("swipe-down-arrow")[0].addEventListener("click", () => {
+        window.scrollTo(0, window.innerHeight);
+    })
+    startBG();
+});
+
+export const BGLoaded = () => {
+    contentLoaded();
+    animateOnLoad();
     animateNavItems();
     animateNavButton();
-    animateOnLoad();
     onScrollPositionAnimation();
     animateDecorations();
-});
+}

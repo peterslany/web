@@ -114,8 +114,6 @@ const animateSectionText = (target) => {
 };
 
 export const animateOnLoad = () => {
-    startBG();
-    fadeInItem("#home-image");
     moveInFromUpwards(".navbar-menu__item", true);
     animateFirstText();
     animateBgOnScroll();

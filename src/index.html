@@ -8,17 +8,25 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'UA-180839816-1');
     </script>
+    <meta name="google-site-verification" content="6MniQxudkFpHyn0qwkToCwbuQgXMS858wByEsg4ZW9E" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Do you need a web?" />
+    <meta property="og:url" content="https://peterslany.github.io/web" />
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" />
+    <meta property="og:description" content="I can create a web that completely suits your needs." />
     <title>Peter Slaný</title>
 </head>
 
-
-
 <body>
+    <div class="loader">
+        <span> .</span>
+        <span>.</span>
+        <span>.</span>
+    </div>
     <div id="bg"></div>
     <div class="front-full-size">
         <span class="theme-menu-wrapper">
@@ -26,11 +34,9 @@
         </span>
         <p class="display-4 text-center py-3 header">Peter Slaný</p>
         <div id="toggleMenu">
-
             <span class="toggleMenu__text">
                 MENU
             </span>
-
         </div>
         <nav id="test_1" class="navbar-menu-wrapper">
             <ul class="navbar-menu">
@@ -44,8 +50,6 @@
             </ul>
         </nav>
         <div class="first-content">
-
-
             <div class="first-text">
                 <span>Do </span>
                 <span>you </span>
@@ -56,7 +60,6 @@
             </div>
             <img class="swipe-down-arrow" src="./assets/svg/down_arrow.svg" alt="">
         </div>
-
     </div>
     <main class="main-content">
         <section id="about">
@@ -100,7 +103,6 @@
                 </div>
                 <img class="flex-row-50 img-less-saturation-hover no-crop center-horizontally"
                     src="./assets/svg/undraw_web_developer_p3e5.svg" alt="Illustration: developing web">
-
             </div>
         </section>
         <section id="work">
@@ -111,30 +113,32 @@
                         <img src="./assets/svg/desktop_icon.svg" alt="">
                         <p>Visit on desktop to see live version of my work.</p>
                     </div>
-                    <iframe id="work__react-portfolio" class="hide-on-mobile" src="https://react-sample-app.netlify.app/"
-                        title="React Sample"></iframe>
+                    <iframe id="work__react-portfolio" class="hide-on-mobile"
+                        src="https://react-sample-app.netlify.app/" title="React Sample"></iframe>
                 </div>
                 <div class="flex-row-33 centered-content">
                     <div class="section-content__text-block">
                         <div class="heading">
                             <h1 class="flex-row">Parallax storytelling & news search</h1>
                         </div>
-                        <img class="decoration-arrow hide-on-mobile decoration-arrow--react-sample" src="./assets/svg/1435215.svg" alt="arrow">
+                        <img class="decoration-arrow hide-on-mobile decoration-arrow--react-sample"
+                            src="./assets/svg/1435215.svg" alt="arrow">
                         <div class="paragraph">
-                                <ul class="work__list">
-                                    <li>
-                                        Open sourced single-page app created in React.js
-                                    </li>
-                                    <li>
-                                        Feature to search through Guardian news
-                                    </li>
-                                    <li>
-                                        GitHub repository <a target="_blank" href="https://github.com/peterslany/react-sample-rest">here.</a>
-                                    </li>
-                                    <li>
-                                        See it live <a target="_blank" href="https://react-sample-app.netlify.app">here.</a>
-                                    </li>
-                                </ul>
+                            <ul class="work__list">
+                                <li>
+                                    Open sourced single-page app created in React.js
+                                </li>
+                                <li>
+                                    Feature to search through Guardian news
+                                </li>
+                                <li>
+                                    GitHub repository <a target="_blank"
+                                        href="https://github.com/peterslany/react-sample-rest">here.</a>
+                                </li>
+                                <li>
+                                    See it live <a target="_blank" href="https://react-sample-app.netlify.app">here.</a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -142,8 +146,23 @@
         </section>
         <section id="contact">
             <div class="section-heading">CONTACT ME</div>
-
+            <div class="section-content">
+                <div class="flex-row-50 centered-content contact-button">
+                    <a class="centered-content" target="_blank" href="https://www.linkedin.com/in/peterslany">
+                        <p>LinkedIn</p>
+                    </a>
+                </div>
+                <div class="flex-row-50 centered-content contact-button">
+                    <a class="centered-content" target="_blank"
+                        href="mailto:p.slany99@gmail.com?subject=I%20need%20a%20web">
+                        <p>Email</p>
+                    </a>
+                </div>
+            </div>
         </section>
+        <div class="footer">
+            &copy; Peter Slaný 2020
+        </div>
     </main>
     <script src="./index.js"></script>
 </body>
